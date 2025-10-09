@@ -150,8 +150,8 @@ print(df.head())
 
 ## Related Resources
 
-- **Mines Lunar Surface Simulator (MLSS):**  
-  [https://space.mines.edu/](https://space.mines.edu/)
+- **Dr. Frankie Zhu & the RoSE Lab:**  
+  [https://franceszhu.space/](https://franceszhu.space/)
 
 - **RoSEy CubeRover specifications:**  
   [https://github.com/RoSE-Lab-Admin/CubeRover](https://github.com/RoSE-Lab-Admin/CubeRover)

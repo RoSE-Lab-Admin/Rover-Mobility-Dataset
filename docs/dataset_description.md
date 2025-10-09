@@ -39,7 +39,10 @@ At the top level of the S3 bucket:
 │   │   │   │   ├── wheel_cameras/
 │   │   │   │   ├── motion_capture.mcap
 │   │   │   │   └── lidar_scan.mcap
-│   │   │   └── Processed_Data.csv
+│   │   │   ├── Processed_Data.csv
+|   |   |   └── Processed_Data/
+│   │   │   │   ├── overhead.mp4
+│   │   │   │   └── wheel_cams.mp4
 │   │   ├── Trial_2/
 │   │   └── ...
 │   └── ...
@@ -52,7 +55,7 @@ Each **configuration folder** is named using the convention
 `Speed_Radius_Direction_Inclination`, for example:
 
 ```
-5cmps_120cm_CCW_0deg/
+5cms_120cm_CCW_0deg/
 ```
 
 Every **trial subfolder** (`Trial_1`, `Trial_2`, …) includes:
@@ -147,14 +150,11 @@ print(df.head())
 
 ## Related Resources
 
-- **RoSE Lab GitHub (hardware & software):**  
-  [https://github.com/RoSE-Lab-Admin](https://github.com/RoSE-Lab-Admin)
-
 - **Mines Lunar Surface Simulator (MLSS):**  
   [https://space.mines.edu/](https://space.mines.edu/)
 
 - **RoSEy CubeRover specifications:**  
-  [https://www.astrobotic.com/lunar-delivery/rovers/cuberover/](https://www.astrobotic.com/lunar-delivery/rovers/cuberover/)
+  [https://github.com/RoSE-Lab-Admin/CubeRover](https://github.com/RoSE-Lab-Admin/CubeRover)
 
 ---
 

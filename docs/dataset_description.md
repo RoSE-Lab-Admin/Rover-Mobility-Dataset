@@ -4,8 +4,8 @@
 **Affiliation:** Robotic Space Exploration (RoSE) Lab, Colorado School of Mines  
 **Contact:** bailey_hopkins@mines.edu  
 **Dataset Version:** 1.0 (Initial release, ~3 TB)  
-**License:** *<Insert final license here — recommended: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)>*  
-**Hosting:** *<Insert S3 bucket URL and AWS region once finalized>*  
+**License:**  
+**Hosting:** 
 **Citation:** Hopkins et al., *Rover Mobility in a Lunar Analogue Dataset*, in submission (2025). DOI to be added upon publication.  
 
 ---

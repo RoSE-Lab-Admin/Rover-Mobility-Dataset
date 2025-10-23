@@ -40,14 +40,14 @@ At the top level of the S3 bucket:
 │   │   │   │   ├── motion_capture.mcap
 │   │   │   │   └── lidar_scan.mcap
 │   │   │   ├── Processed_Data.csv
-|   |   |   └── Processed_Data/
+|   |   |   └── Processed_Videos/
 │   │   │   │   ├── overhead.mp4
 │   │   │   │   └── wheel_cams.mp4
 │   │   ├── Trial_2/
 │   │   └── ...
 │   └── ...
 │
-└── Bad_Data/
+└── Off_Nominal_Data/
     └── [Trials retained for completeness but not used in analysis]
 ```
 

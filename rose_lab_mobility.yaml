@@ -1,8 +1,8 @@
 Name: Rover Mobility in a Lunar Analogue Dataset
-Description: >
+Description: |
   A dataset of 1,680 controlled rover mobility trials conducted at the Mines Lunar Surface Simulator.
   Includes synchronized telemetry (IMU, wheel encoders), motion-capture ground truth, and LiDAR terrain scans.
-Documentation: 
+Documentation: https://github.com/RoSE-Lab-Admin/Rover-Mobility-Dataset/blob/main/README.md
 Contact: bailey_hopkins@mines.edu
 ManagedBy: Colorado School of Mines RoSE Lab
 UpdateFrequency: As new data becomes available
@@ -11,8 +11,20 @@ Tags:
   - robotics
   - lunar
   - rover
+  - aws-pds
+License: https://creativecommons.org/licenses/by/4.0/  
 Resources:
   - Description: Primary dataset (3 TB)
+    ARN: #STILL NEEDED
+    Region: us-west-2                     
     Type: S3 Bucket
-  - Description: Documentation & tutorial
-    URL: 
+    Explore:
+    - #STILL NEEDED
+DataAtWork:
+  Tutorials:
+    - Title: "Get To Know A Dataset: Rover Mobility"   
+      URL: https://github.com/RoSE-Lab-Admin/Rover-Mobility-Dataset/tree/main/docs #Placeholder for tutorial
+      AuthorName: Bailey Hopkins
+      AuthorURL: https://github.com/RoSE-Lab-Admin/Rover-Mobility-Dataset/tree/main/docs #Placeholder for tutorial
+      Services:
+        - Amazon S3

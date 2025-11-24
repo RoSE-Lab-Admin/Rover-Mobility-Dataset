@@ -15,14 +15,14 @@ Tags:
 License: https://creativecommons.org/licenses/by/4.0/  
 Resources:
   - Description: Primary dataset (3 TB)
-    ARN: arn:aws:s3:::amzn-s3-rose-mobility
-    Region: us-east-2                     
+    ARN: arn:aws:s3:::rover-mobility-in-a-lunar-analogue-dataset
+    Region: us-west-2                     
     Type: S3 Bucket
 DataAtWork:
   Tutorials:
-    - Title: "Get To Know A Dataset: Rover Mobility"   
-      URL: https://github.com/RoSE-Lab-Admin/Rover-Mobility-Dataset/tree/main/docs #Placeholder for tutorial
+    - Title: "Get To Know A Dataset: Rover Mobility in a Lunar Analogue Dataset"   
+      URL: https://github.com/RoSE-Lab-Admin/Rover-Mobility-Dataset/blob/main/docs/get-to-know-a-dataset.ipynb
       AuthorName: Bailey Hopkins
-      AuthorURL: https://github.com/RoSE-Lab-Admin/Rover-Mobility-Dataset/tree/main/docs #Placeholder for tutorial
+      AuthorURL: https://github.com/Bailey-C-Hopkins
       Services:
         - Amazon S3

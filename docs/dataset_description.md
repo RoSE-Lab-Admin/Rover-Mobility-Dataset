@@ -12,7 +12,7 @@
 
 **Hosting:** Amazon Web Services (AWS) Open Data Sponsorship Program
 
-**Citation:** Hopkins et al., *Rover Mobility in a Lunar Analogue Dataset*, in submission (2025). DOI to be added upon publication.
+**Citation:** Hopkins et al., *Rover Mobility in a Lunar Analogue Dataset*, iSpaRo (2025).
 
 ---
 
@@ -34,7 +34,7 @@ All trials were conducted using the **RoSEy CubeRover**, a 6U-class platform bui
 At the top level of the S3 bucket:
 
 ```
-arn:aws:s3:::amzn-s3-rose-mobility/
+arn:aws:s3:::rover-mobility-in-a-lunar-analogue-dataset/
 │
 ├── Trial_Data/
 │   ├── <Speed>_<Radius>_<Direction>_<Inclination>/
@@ -96,10 +96,10 @@ Below is the schema:
 
 | Topic | Message Type | Rate (Hz) | Description |
 |:------|:--------------|:----------|:-------------|
-| `/imu/data` | `sensor_msgs/Imu` | 100 | Quaternion, angular vel, linear acc |
-| `/motor/encoder` | `custom_msgs/MotorData` | 10 | Wheel position & speed |
-| `/wheel_camera/image_raw` | `sensor_msgs/Image` | 15 fps | RGB view of each wheel |
-| `/optitrack/pose` | `geometry_msgs/PoseStamped` | 120 | Rover pose & orientation ground truth |
+| `/imu/data` | `sensor_msgs/Imu` | ≈100 | Quaternion, angular vel, linear acc |
+| `/motor/encoder` | `custom_msgs/MotorData` | ≈10 | Wheel position & speed |
+| `/wheel_camera/image_raw` | `sensor_msgs/Image` | ≈15 fps | RGB view of each wheel |
+| `/optitrack/pose` | `geometry_msgs/PoseStamped` | ≈120 | Rover pose & orientation ground truth |
 | `/lidar/points` | `sensor_msgs/PointCloud2` | static | Terrain mesh before & after trial |
 
 All sensor data are recorded as **ROS 2 MCAP** files, viewable using:
@@ -122,22 +122,38 @@ ros2 bag play <file>.mcap
 Total number of trials: 1,680.
 Each complete trial ≈ 1.8 GB, aggregate dataset ≈ 3 TB (Version 1.0).
 
+## Dataset v1 Completion Status
+
+**Current Status:** As of November 2025, data collection is **73.10% complete** (1,228 of 1,680 planned trials).
+
+**Available Data:**
+The current release (v1) contains the majority of baseline driving scenarios.
+
+**Pending Data (Scheduled for Future Release):**
+The following scenarios are currently being collected and will be added in upcoming updates:
+
+* **Straight Path Deviations:**
+    * Steering/Offset (S) parameters of **-30.0** and **30.0** are missing across all velocity ranges (1.0–10.0).
+    * Steering/Offset (S) parameter of **25.0** is missing for lower velocities (1.0–6.0).
+* **Variable Radius Turns:**
+    * Specific **Right** and **Left** turn trials are pending across various radii (0, 20, 40, 60, 80, 100) and velocities (1.0–10.0).
+
 ---
 
 ## Accessing the Dataset on AWS
 
 The dataset is hosted in an **open-access Amazon S3 bucket** provided by the AWS Open Data Sponsorship Program.
 
-**Bucket Name:** `amzn-s3-rose-mobility`
-**Region:** `us-east-2`
+**Bucket Name:** `rover-mobility-in-a-lunar-analogue-dataset`
+**Region:** `us-west-2`
 
 ### CLI Example
 ```bash
 # List available configurations
-aws s3 ls s3://amzn-s3-rose-mobility/Trial_Data/ --no-sign-request
+aws s3 ls s3://rover-mobility-in-a-lunar-analogue-dataset/Trial_Data/ --no-sign-request
 
 # Copy one processed file
-aws s3 cp s3://amzn-s3-rose-mobility/Trial_Data/5.0_120.0_Right_0.0/Trial_1/Processed_Data.csv . --no-sign-request
+aws s3 cp s3://rover-mobility-in-a-lunar-analogue-dataset/Trial_Data/5.0_120.0_Right_0.0/Trial_1/Processed_Data.csv . --no-sign-request
 ```
 
 ### Python Example
@@ -145,13 +161,16 @@ aws s3 cp s3://amzn-s3-rose-mobility/Trial_Data/5.0_120.0_Right_0.0/Trial_1/Proc
 import boto3
 import pandas as pd
 from io import BytesIO
+from botocore import UNSIGNED
+from botocore.config import Config
 
 # Anonymous access (no credentials needed)
-s3 = boto3.client('s3', region_name='us-east-2', config=boto3.session.Config(signature_version=boto3.UNSIGNED))
+s3 = boto3.client('s3', region_name='us-west-2', config=Config(signature_version=UNSIGNED))
 
-bucket = 'amzn-s3-rose-mobility'
+bucket = 'rover-mobility-in-a-lunar-analogue-dataset'
 key = 'Trial_Data/5.0_120.0_Right_0.0/Trial_1/Processed_Data.csv'
 
+# Now try to get the object
 obj = s3.get_object(Bucket=bucket, Key=key)
 df = pd.read_csv(obj['Body'])
 print(df.head())
@@ -170,7 +189,7 @@ print(df.head())
 
 When using this dataset, please cite:
 
-> Hopkins, B. C., et al. (2025). *Rover Mobility in a Lunar Analogue Dataset*. [In Submission].
+> Hopkins, B. C., et al. (2025). *Rover Mobility in a Lunar Analogue Dataset* iSpaRo 2025.
 
 Please also acknowledge the AWS Open Data Sponsorship Program.
 

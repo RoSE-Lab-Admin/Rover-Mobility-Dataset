@@ -6,7 +6,7 @@
 
 **Contact:** bailey_hopkins@mines.edu
 
-**Dataset Version:** 1.0 (Initial release, ~3 TB)
+**Dataset Version:** 0.7 (iSpaRo prerelease, ~3 TB)
 
 **License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 
